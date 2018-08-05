@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Bookshelf from './Bookshelf';
+import {Link} from 'react-router-dom';
 
-export default class Main extends Component {
+export default class Library extends Component {
   constructor() {
     super();
     this.state = {
@@ -9,13 +10,14 @@ export default class Main extends Component {
     }
   }
 
-  filterBooks = (bookshelf) => {
+  filterBooks = (shelf) => {
     const {books} = this.props;
-    return books.filter((book) => book.shelf === bookshelf);
+    return books.filter((book) => book.shelf === shelf);
   }
 
   render() {
-    const {updateBookshelf} = this.props;
+    const {updateBookShelf} = this.props;
+
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -25,13 +27,13 @@ export default class Main extends Component {
           <div>
             <Bookshelf name="Currently Reading"
                        books={this.filterBooks('currentlyReading')}
-                       updateBookshelf={updateBookshelf} />
-            <Bookshelf name="Currently Reading"
+                       updateBookShelf={updateBookShelf} />
+            <Bookshelf name="Want to Read"
                        books={this.filterBooks('wantToRead')}
-                       updateBookshelf={updateBookshelf} />
-            <Bookshelf name="Currently Reading"
-                       books={this.filterBooks('doneReading')}
-                       updateBookshelf={updateBookshelf} />
+                       updateBookShelf={updateBookShelf} />
+            <Bookshelf name="Read"
+                       books={this.filterBooks('read')}
+                       updateBookShelf={updateBookShelf} />
           </div>
         </div>
         <div className="open-search">

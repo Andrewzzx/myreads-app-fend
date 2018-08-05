@@ -1,30 +1,29 @@
 import React, {Component} from 'react';
 
-
 export default class Book extends Component {
 
   constructor() {
     super();
     this.state = {
-      bookshelf: 'none'
+      shelf: 'none'
     };
   };
 
-  changeBookshelf(shelf) {
-    this.setState({bookshelf: shelf});
+  changeBookShelf(shelf) {
+    this.setState({shelf: shelf});
   }
 
   render() {
-    const { title, authors, images } = this.props;
-    const { thumbinal } = images;
-    const { bookshelf } = this.state;
+    const { title, authors, imageLinks } = this.props;
+    const { thumbnail } = imageLinks;
+    const { shelf } = this.state;
 
     return(
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("thumbnail")' }}></div>
           <div className="book-shelf-changer">
-            <select value = {shelf} onChange={ (e) => this.changeBookshelf(e.target.value)}>
+            <select value = {shelf} onChange={ (e) => this.changeBookShelf(e.target.value)}>
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
