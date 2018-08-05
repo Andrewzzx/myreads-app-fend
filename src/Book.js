@@ -10,7 +10,14 @@ export default class Book extends Component {
   };
 
   changeBookShelf(shelf) {
+    const {updateBookShelf} = this.props;
+    updateBookShelf(this.props, shelf);
     this.setState({shelf: shelf});
+  }
+
+  componentDidMount () {
+    const {shelf} = this.props;
+    this.setState({shelf});
   }
 
   render() {
@@ -21,7 +28,7 @@ export default class Book extends Component {
     return(
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("thumbnail")' }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${thumbnail})` }}></div>
           <div className="book-shelf-changer">
             <select value = {shelf} onChange={ (e) => this.changeBookShelf(e.target.value)}>
               <option value="move" disabled>Move to...</option>

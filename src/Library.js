@@ -3,15 +3,9 @@ import Bookshelf from './Bookshelf';
 import {Link} from 'react-router-dom';
 
 export default class Library extends Component {
-  constructor() {
-    super();
-    this.state = {
-      storedBooks: []
-    }
-  }
 
   filterBooks = (shelf) => {
-    const {books} = this.props;
+    const { books } = this.props;
     return books.filter((book) => book.shelf === shelf);
   }
 
@@ -40,6 +34,6 @@ export default class Library extends Component {
           <Link to="/search">Add a book</Link>
         </div>
       </div>
-    )
+    );
   }
 }
