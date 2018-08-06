@@ -9,10 +9,10 @@ export default class Book extends Component {
     };
   };
 
-  changeBookShelf(shelf) {
+  changeBookShelf(value) {
     const {updateBookShelf} = this.props;
-    updateBookShelf(this.props, shelf);
-    this.setState({shelf: shelf});
+    updateBookShelf(this.props, value);
+    this.setState({shelf: value});
   }
 
   componentDidMount () {

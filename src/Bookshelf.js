@@ -10,8 +10,11 @@ export default class Bookshelf extends Component {
         <div className="bookshelf-books">
           <ol className="books-grid">
             {books.map((book) => (
-              <Book id={book.id} shelf={book.shelf} authors={book.authors}
-                    title={book.title} imageLinks={book.imageLinks}
+              <Book id={book.id}
+                    shelf={book.shelf}
+                    authors={book.authors}
+                    title={book.title}
+                    imageLinks={book.imageLinks}
                     updateBookShelf={updateBookShelf} />
             ))}
           </ol>
